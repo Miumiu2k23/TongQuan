@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>MIU - Tổng quan</title>
+<title>MIU - Thu ngân</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -2903,7 +2903,6 @@
   .pbh-card.state-paid .pbh-card-shape-row .amt { color: #0a8a3c; }
   .pbh-card.state-paid .pbh-card-shape-row .stat { color: #0a8a3c; }
 
-  .pbh-card.open-tab .pbh-card-shape { box-shadow: 0 0 0 1.5px #7fb0f5 inset; }
 
   /* Bàn đang được chọn làm đơn hiện tại: luôn tô đặc nền xanh + khung trắng lồng bên trong,
      áp dụng cho mọi trạng thái (còn trống, đang gọi món, đã yêu cầu thanh toán, đã thanh toán) */
@@ -3989,7 +3988,7 @@
   /* Thẻ bàn: bàn bo tròn + ghế 4 phía, tên bàn bên dưới */
   #screenBanHang .pbh-card { width: 146px; margin: 0 8px 10px 0; padding: 12px 8px 10px; border-radius: 12px; transition: background .12s ease; }
   #screenBanHang .pbh-card:hover { transform: none; background: #cfe5ff; }
-  #screenBanHang .pbh-card.open-tab { background: #cfe5ff; }
+  /* Ô đã mở trước đó không còn nền xanh nhạt khi chuyển sang ô khác */
   #screenBanHang .pbh-card.selected { background: #0566d6; }
   #screenBanHang .pbh-card-shape { border: 2px solid #aab6c8; border-radius: 22px; min-height: 78px; box-shadow: none; }
   #screenBanHang .pbh-card-shape::before { content: ''; position: absolute; left: -7px; right: -7px; top: 50%; height: 26px; transform: translateY(-50%); border-left: 4px solid #c3ccd9; border-right: 4px solid #c3ccd9; border-radius: 4px; pointer-events: none; }
@@ -34416,7 +34415,6 @@ const PB_FIXED_DATA = [
         cls.push('state-empty');
       }
       if (t.id === pbhActiveOrderId) cls.push('selected');
-      else if (isOpenTab) cls.push('open-tab');
       const amount = pbhTableAmount(t);
       const qty = t.cart.reduce(function (s, it) { return s + it.qty; }, 0);
       const guestCount = t.seats || 1;
@@ -37165,7 +37163,7 @@ const PB_FIXED_DATA = [
       try { sessionStorage.removeItem('miu_landing'); } catch (e2) {}
       goToNvBoard();
     } else {
-      window.location.href = 'https://miumiu2k23.github.io/NhanVien/';
+      window.location.href = 'nhan_vien.html';
     }
   }
 
@@ -41933,8 +41931,8 @@ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('optPick
    đăng nhập và cách chuyển sang trang khác (mở bằng liên kết thật, tự mang theo phiên đăng nhập). */
 (function () {
   'use strict';
-  var PAGE = 'index';
-  var FILE = { index: 'https://miumiu2k23.github.io/TongQuan/', thu_ngan: 'https://miumiu2k23.github.io/ThuNgan/', nhan_vien: 'https://miumiu2k23.github.io/NhanVien/' };
+  var PAGE = 'thu_ngan';
+  var FILE = { index: 'index.html', thu_ngan: 'thu_ngan.html', nhan_vien: 'nhan_vien.html' };
   var TITLE = { index: 'MIU - Tổng quan', thu_ngan: 'MIU - Thu ngân', nhan_vien: 'MIU - Nhân viên' };
   function el(id) { return document.getElementById(id); }
   function role() { return (typeof currentAccount !== 'undefined' && currentAccount) ? currentAccount.role : null; }
