@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>MIU - Thu ngân</title>
+<title>MIU - Tổng quan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -2903,22 +2903,8 @@
   .pbh-card.state-paid .pbh-card-shape-row .amt { color: #0a8a3c; }
   .pbh-card.state-paid .pbh-card-shape-row .stat { color: #0a8a3c; }
 
+  .pbh-card.open-tab .pbh-card-shape { box-shadow: 0 0 0 1.5px #7fb0f5 inset; }
 
-  /* Bàn đang được chọn làm đơn hiện tại: luôn tô đặc nền xanh + khung trắng lồng bên trong,
-     áp dụng cho mọi trạng thái (còn trống, đang gọi món, đã yêu cầu thanh toán, đã thanh toán) */
-  .pbh-card.selected .pbh-card-shape {
-    background: var(--kv-primary) !important; border-color: var(--kv-primary) !important;
-    box-shadow: none; padding: 18px 18px; gap: 6px;
-  }
-  .pbh-card.selected .pbh-card-shape::after {
-    content: ''; position: absolute; inset: 10px; border: 2px solid rgba(255,255,255,0.85); border-radius: 14px; pointer-events: none;
-  }
-  .pbh-card.selected .pbh-card-shape .amt,
-  .pbh-card.selected .pbh-card-shape .dur,
-  .pbh-card.selected .pbh-card-shape .stat { color: #fff !important; }
-  .pbh-card.selected .pbh-card-shape .stat + .stat::before { background: #fff; opacity: .7; }
-  .pbh-card.selected .pbh-card-chair { background: rgba(255,255,255,0.85) !important; }
-  .pbh-card.selected .pbh-card-name { color: #0d6efd; font-weight: 800; }
   .pbh-pager { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
   .pbh-pager label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #525d6a; }
   .pbh-pager-nav { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #525d6a; }
@@ -3988,16 +3974,12 @@
   /* Thẻ bàn: bàn bo tròn + ghế 4 phía, tên bàn bên dưới */
   #screenBanHang .pbh-card { width: 146px; margin: 0 8px 10px 0; padding: 12px 8px 10px; border-radius: 12px; transition: background .12s ease; }
   #screenBanHang .pbh-card:hover { transform: none; background: #cfe5ff; }
-  /* Ô đã mở trước đó không còn nền xanh nhạt khi chuyển sang ô khác */
-  #screenBanHang .pbh-card.selected { background: #0566d6; }
+  #screenBanHang .pbh-card.open-tab { background: #cfe5ff; }
   #screenBanHang .pbh-card-shape { border: 2px solid #aab6c8; border-radius: 22px; min-height: 78px; box-shadow: none; }
   #screenBanHang .pbh-card-shape::before { content: ''; position: absolute; left: -7px; right: -7px; top: 50%; height: 26px; transform: translateY(-50%); border-left: 4px solid #c3ccd9; border-right: 4px solid #c3ccd9; border-radius: 4px; pointer-events: none; }
   #screenBanHang .pbh-card-chair { width: 46px; height: 5px; background: #c3ccd9; }
   #screenBanHang .pbh-card-chairs { gap: 6px; }
   #screenBanHang .pbh-card-name { font-size: 14.5px; font-weight: 600; color: #15171a; margin-top: 12px; text-transform: uppercase; }
-  #screenBanHang .pbh-card.selected .pbh-card-name { color: #fff; font-weight: 700; }
-  #screenBanHang .pbh-card.selected .pbh-card-shape::before { border-color: #fff; }
-  #screenBanHang .pbh-card.selected .pbh-card-shape { border-color: #fff !important; }
 
   /* Khung giỏ hàng + nút dưới cùng */
   #screenBanHang .pbh-cart-foot { border-top: none; padding: 10px 16px 16px; }
@@ -4023,31 +4005,31 @@
   #screenBanHang #pbhGrid .pbh-card { overflow: hidden; }
 
   /* Bàn đang sử dụng (đang gọi món): tô xanh dương nhạt cả ô vuông, viền + ghế xanh dương đậm (như KiotViet) */
-  #screenBanHang .pbh-card.state-ordering:not(.selected) { background: #c6e0fb; }
-  #screenBanHang .pbh-card.state-ordering:not(.selected):hover { background: #b5d6f8; }
-  #screenBanHang .pbh-card.state-ordering:not(.selected) .pbh-card-chair { background: #1f6fd8; }
-  #screenBanHang .pbh-card.state-ordering:not(.selected) .pbh-card-shape { border-color: #1f6fd8; background: transparent; }
-  #screenBanHang .pbh-card.state-ordering:not(.selected) .pbh-card-shape::before { border-color: #1f6fd8; }
-  #screenBanHang .pbh-card.state-ordering:not(.selected) .pbh-card-shape-row .amt,
-  #screenBanHang .pbh-card.state-ordering:not(.selected) .pbh-card-shape-row .dur { color: #15171a; }
-  #screenBanHang .pbh-card.state-ordering:not(.selected) .pbh-card-shape-row .stat { color: #525d6a; }
+  #screenBanHang .pbh-card.state-ordering { background: #c6e0fb; }
+  #screenBanHang .pbh-card.state-ordering:hover { background: #b5d6f8; }
+  #screenBanHang .pbh-card.state-ordering .pbh-card-chair { background: #1f6fd8; }
+  #screenBanHang .pbh-card.state-ordering .pbh-card-shape { border-color: #1f6fd8; background: transparent; }
+  #screenBanHang .pbh-card.state-ordering .pbh-card-shape::before { border-color: #1f6fd8; }
+  #screenBanHang .pbh-card.state-ordering .pbh-card-shape-row .amt,
+  #screenBanHang .pbh-card.state-ordering .pbh-card-shape-row .dur { color: #15171a; }
+  #screenBanHang .pbh-card.state-ordering .pbh-card-shape-row .stat { color: #525d6a; }
 
   /* Yêu cầu thanh toán / in tạm tính (billed) và đã thanh toán (paid): tô xanh lá cả ô vuông.
      Bàn đang được chọn luôn là xanh dương đậm (giữ nguyên). */
-  #screenBanHang .pbh-card.state-billed:not(.selected),
-  #screenBanHang .pbh-card.state-paid:not(.selected) { background: #cbeed9; }
-  #screenBanHang .pbh-card.state-billed:not(.selected):hover,
-  #screenBanHang .pbh-card.state-paid:not(.selected):hover { background: #b9e6cb; }
-  #screenBanHang .pbh-card.state-billed:not(.selected) .pbh-card-chair,
-  #screenBanHang .pbh-card.state-paid:not(.selected) .pbh-card-chair { background: #2bb24c; }
-  #screenBanHang .pbh-card.state-billed:not(.selected) .pbh-card-shape,
-  #screenBanHang .pbh-card.state-paid:not(.selected) .pbh-card-shape { border-color: #2bb24c; background: transparent; }
-  #screenBanHang .pbh-card.state-billed:not(.selected) .pbh-card-shape::before,
-  #screenBanHang .pbh-card.state-paid:not(.selected) .pbh-card-shape::before { border-color: #5cc77a; }
-  #screenBanHang .pbh-card.state-billed:not(.selected) .pbh-card-shape-row .amt,
-  #screenBanHang .pbh-card.state-billed:not(.selected) .pbh-card-shape-row .stat,
-  #screenBanHang .pbh-card.state-paid:not(.selected) .pbh-card-shape-row .amt,
-  #screenBanHang .pbh-card.state-paid:not(.selected) .pbh-card-shape-row .stat { color: #15171a; }
+  #screenBanHang .pbh-card.state-billed,
+  #screenBanHang .pbh-card.state-paid { background: #cbeed9; }
+  #screenBanHang .pbh-card.state-billed:hover,
+  #screenBanHang .pbh-card.state-paid:hover { background: #b9e6cb; }
+  #screenBanHang .pbh-card.state-billed .pbh-card-chair,
+  #screenBanHang .pbh-card.state-paid .pbh-card-chair { background: #2bb24c; }
+  #screenBanHang .pbh-card.state-billed .pbh-card-shape,
+  #screenBanHang .pbh-card.state-paid .pbh-card-shape { border-color: #2bb24c; background: transparent; }
+  #screenBanHang .pbh-card.state-billed .pbh-card-shape::before,
+  #screenBanHang .pbh-card.state-paid .pbh-card-shape::before { border-color: #5cc77a; }
+  #screenBanHang .pbh-card.state-billed .pbh-card-shape-row .amt,
+  #screenBanHang .pbh-card.state-billed .pbh-card-shape-row .stat,
+  #screenBanHang .pbh-card.state-paid .pbh-card-shape-row .amt,
+  #screenBanHang .pbh-card.state-paid .pbh-card-shape-row .stat { color: #15171a; }
 </style>
 </head>
 <body>
@@ -34415,6 +34397,7 @@ const PB_FIXED_DATA = [
         cls.push('state-empty');
       }
       if (t.id === pbhActiveOrderId) cls.push('selected');
+      else if (isOpenTab) cls.push('open-tab');
       const amount = pbhTableAmount(t);
       const qty = t.cart.reduce(function (s, it) { return s + it.qty; }, 0);
       const guestCount = t.seats || 1;
@@ -37163,7 +37146,7 @@ const PB_FIXED_DATA = [
       try { sessionStorage.removeItem('miu_landing'); } catch (e2) {}
       goToNvBoard();
     } else {
-      window.location.href = 'nhan_vien.html';
+      window.location.href = 'https://miumiu2k23.github.io/NhanVien/';
     }
   }
 
@@ -41931,8 +41914,8 @@ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('optPick
    đăng nhập và cách chuyển sang trang khác (mở bằng liên kết thật, tự mang theo phiên đăng nhập). */
 (function () {
   'use strict';
-  var PAGE = 'thu_ngan';
-  var FILE = { index: 'index.html', thu_ngan: 'thu_ngan.html', nhan_vien: 'nhan_vien.html' };
+  var PAGE = 'index';
+  var FILE = { index: 'https://miumiu2k23.github.io/TongQuan/', thu_ngan: 'https://miumiu2k23.github.io/ThuNgan/', nhan_vien: 'https://miumiu2k23.github.io/NhanVien/' };
   var TITLE = { index: 'MIU - Tổng quan', thu_ngan: 'MIU - Thu ngân', nhan_vien: 'MIU - Nhân viên' };
   function el(id) { return document.getElementById(id); }
   function role() { return (typeof currentAccount !== 'undefined' && currentAccount) ? currentAccount.role : null; }
