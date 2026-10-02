@@ -37165,7 +37165,7 @@ const PB_FIXED_DATA = [
       try { sessionStorage.removeItem('miu_landing'); } catch (e2) {}
       goToNvBoard();
     } else {
-      window.location.href = 'nhan_vien.html';
+      window.location.href = 'https://miumiu2k23.github.io/NhanVien/';
     }
   }
 
@@ -41934,7 +41934,11 @@ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('optPick
 (function () {
   'use strict';
   var PAGE = 'index';
-  var FILE = { index: 'index.html', thu_ngan: 'thu_ngan.html', nhan_vien: 'nhan_vien.html' };
+  var FILE = {
+    index: 'https://miumiu2k23.github.io/TongQuan/',
+    thu_ngan: 'https://miumiu2k23.github.io/ThuNgan/',
+    nhan_vien: 'https://miumiu2k23.github.io/NhanVien/'
+  };
   var TITLE = { index: 'MIU - Tổng quan', thu_ngan: 'MIU - Thu ngân', nhan_vien: 'MIU - Nhân viên' };
   function el(id) { return document.getElementById(id); }
   function role() { return (typeof currentAccount !== 'undefined' && currentAccount) ? currentAccount.role : null; }
